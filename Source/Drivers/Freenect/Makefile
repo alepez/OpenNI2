@@ -18,7 +18,7 @@ ifeq ("$(OSTYPE)","Darwin")
 	LDFLAGS += -framework CoreFoundation -framework IOKit
 endif
 
-LIB_NAME = DummyDevice
+LIB_NAME = Freenect
 
 LIB_DIRS = ../../../ThirdParty/PSCommon/XnLib/Bin/$(PLATFORM)-$(CFG)
 USED_LIBS = XnLib dl pthread freenect
