@@ -36,7 +36,8 @@ ALL_DRIVERS = \
 	Source/Drivers/DummyDevice   \
 	Source/Drivers/PS1080 \
 	Source/Drivers/PSLink \
-	Source/Drivers/OniFile
+	Source/Drivers/OniFile \
+    Source/Drivers/Freenect
 
 # list all wrappers
 ALL_WRAPPERS = \
