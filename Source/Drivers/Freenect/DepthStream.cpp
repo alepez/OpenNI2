@@ -50,6 +50,8 @@ void DepthStream::populateFrame(void* data, OniFrame* frame) const {
 	frame->sensorType = sensor_type;
 	frame->stride = video_mode.resolutionX * sizeof(uint16_t);
 	
+    printf("resolution %i x %i\n", (int)frame->width, (int)frame->height);
+    
 	if (cropping.enabled) {
 		frame->height = cropping.height;
 		frame->width = cropping.width;
@@ -58,7 +60,8 @@ void DepthStream::populateFrame(void* data, OniFrame* frame) const {
 		frame->croppingEnabled = true;
 	}
 	else {
-		frame->cropOriginX = frame->cropOriginY = 0;
+        frame->cropOriginX = 0;
+        frame->cropOriginY = 0;
 		frame->croppingEnabled = false;	
 	}
 	
@@ -69,6 +72,7 @@ void DepthStream::populateFrame(void* data, OniFrame* frame) const {
 	unsigned short* target = static_cast<unsigned short*>(frame->data);
 	const unsigned int skipWidth = video_mode.resolutionX - frame->width;
 	
+    
 	if (mirroring) {
 		target += frame->width;
 		
@@ -92,6 +96,7 @@ void DepthStream::populateFrame(void* data, OniFrame* frame) const {
 			source += skipWidth;
 		}
 	}
+	
 	
 	/*
 	uint16_t* data_ptr = static_cast<uint16_t*>(data);
