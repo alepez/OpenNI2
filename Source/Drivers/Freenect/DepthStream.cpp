@@ -49,8 +49,6 @@ OniStatus DepthStream::setVideoMode(OniVideoMode requested_mode) {
 void DepthStream::populateFrame(void* data, OniFrame* frame) const {	
 	frame->sensorType = sensor_type;
 	frame->stride = video_mode.resolutionX * sizeof(uint16_t);
-	
-    printf("resolution %i x %i\n", (int)frame->width, (int)frame->height);
     
 	if (cropping.enabled) {
 		frame->height = cropping.height;
